@@ -8,8 +8,8 @@ import { QUERY_POSTS, QUERY_ME } from '../../utils/queries';
 import Auth from '../../utils/auth';
 
 const PostForm = () => {
-  const [postText, setPostDescription] = useState('');
-
+  const [postDescription, setPostDescription] = useState('');
+  const [postTitle, setPostTitle] = useState('');
   const [characterCount, setCharacterCount] = useState(0);
 
   const [addPost, { error }] = useMutation(ADD_POST, {
@@ -41,11 +41,13 @@ const PostForm = () => {
       const { data } = await addPost({
         variables: {
           postDescription,
-          postAuthor: Auth.getDashboard().data.username,
+          postTitle,
+          // : Auth.getDashboard().data.username,
         },
       });
 
       setPostDescription('');
+      setPostTitle('');
     } catch (err) {
       console.error(err);
     }
@@ -54,7 +56,7 @@ const PostForm = () => {
   const handleChange = (event) => {
     const { name, value } = event.target;
 
-    if (name === 'thoughtText' && value.length <= 280) {
+    if (name === 'postDescription' && value.length <= 280) {
       setPostDescription(value);
       setCharacterCount(value.length);
     }
@@ -62,7 +64,7 @@ const PostForm = () => {
 
   return (
     <div>
-      <h3>What's on your techy mind?</h3>
+      <h3>Let's talk anime!</h3>
 
       {Auth.loggedIn() ? (
         <>
@@ -80,7 +82,7 @@ const PostForm = () => {
               <textarea
                 name="postText"
                 placeholder="Here's a new thought..."
-                value={postText}
+                value={postDescription}
                 className="form-input w-100"
                 style={{ lineHeight: '1.5', resize: 'vertical' }}
                 onChange={handleChange}
