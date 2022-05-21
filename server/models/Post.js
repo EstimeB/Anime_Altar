@@ -7,7 +7,7 @@ const postSchema = new Schema({
     required: true,
     trim: true,
   },
-  postDescrition: {
+  postDescription: {
     type: String,
     required: 'You need to leave a post!',
     minlength: 1,
@@ -40,6 +40,6 @@ const postSchema = new Schema({
   ],
 });
 
-const Post = model('post', postSchema);
+const Post = model('Post', postSchema);
 
 module.exports = Post;
