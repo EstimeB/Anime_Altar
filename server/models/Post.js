@@ -14,13 +14,13 @@ const postSchema = new Schema({
     maxlength: 280,
     trim: true,
   },
-    createdAt: {
+  createdAt: {
     type: Date,
     default: Date.now,
     required: true,
   },
   comments: [
-   {
+    {
       commentTitle: {
         type: String,
         required: true,
