@@ -45,7 +45,7 @@ const Dashboard = () => {
         <div className="col-12 col-md-10 mb-5">
           <PostList
             thoughts={user.posts}
-            title={`${user.username}'s thoughts...`}
+            title={`${user.username}'s posts...`}
             showTitle={false}
             showUsername={false}
           />

@@ -15,7 +15,7 @@ export const QUERY_USER = gql`
   }
 `;
 
-export const QUERY_THOUGHTS = gql`
+export const QUERY_POSTS = gql`
   query getPosts {
     posts {
       _id
