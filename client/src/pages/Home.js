@@ -19,7 +19,7 @@ const Home = () => {
         >
           <PostForm />
         </div>
-        <div className="col-12 col-md-8 mb-3">
+        <div style = {styles.postBox}>
           {loading ? (
             <div>Loading...</div>
           ) : (
@@ -29,12 +29,19 @@ const Home = () => {
           )}
         </div>
       </div>
+      <div>Checkout</div>
     </main>
   );
 };
 const styles = {
   oldpost: {
-    height: '750px'
+    height: '750px',
+    numColumns: "2"
+  },
+  postBox: {
+    height: '150px', 
+    border: 'solid'
+
   }
 
 }
