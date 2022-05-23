@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-// import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { useMutation } from '@apollo/client';
 
 import { ADD_POST } from '../../utils/mutations';
@@ -80,7 +80,7 @@ const PostForm = () => {
           >
             <div>
               <textarea
-                name="postText"
+                name="postDescription"
                 placeholder="Here's a new thought..."
                 value={postDescription}
                 style={{ lineHeight: '1.5', resize: 'vertical' }}
@@ -103,8 +103,8 @@ const PostForm = () => {
       ) 
       : (
         <p>
-          {/* You need to be logged in to share your posts. Please{' '}
-          <Link to="/login">login</Link> or <Link to="/signup">signup.</Link> */}
+          You need to be logged in to share your posts. Please{' '}
+          <Link to="/login">login</Link> or <Link to="/signup">signup.</Link>
         </p>
       )}
     </div>
