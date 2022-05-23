@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 import { useMutation } from '@apollo/client';
 
 import { ADD_POST } from '../../utils/mutations';
@@ -64,7 +64,7 @@ const PostForm = () => {
   };
 
   return (
-    <div>
+    <div style={styles.letstalk}>
       <h3>Let's talk anime!</h3>
 
       {Auth.loggedIn() ? (
@@ -76,40 +76,46 @@ const PostForm = () => {
             Character Count: {characterCount}/280
           </p>
           <form
-            className="flex-row justify-center justify-space-between-md align-center"
             onSubmit={handleFormSubmit}
           >
-            <div className="col-12 col-lg-9">
+            <div>
               <textarea
                 name="postText"
                 placeholder="Here's a new thought..."
                 value={postDescription}
-                className="form-input w-100"
                 style={{ lineHeight: '1.5', resize: 'vertical' }}
                 onChange={handleChange}
               ></textarea>
             </div>
 
-            <div className="col-12 col-lg-3">
-              <button className="btn btn-primary btn-block py-3" type="submit">
+            <div >
+              <button type="submit">
                 Add Post
               </button>
             </div>
             {error && (
-              <div className="col-12 my-3 bg-danger text-white p-3">
+              <div>
                 {error.message}
               </div>
             )}
           </form>
         </>
-      ) : (
+      ) 
+      : (
         <p>
-          You need to be logged in to share your posts. Please{' '}
-          <Link to="/login">login</Link> or <Link to="/signup">signup.</Link>
+          {/* You need to be logged in to share your posts. Please{' '}
+          <Link to="/login">login</Link> or <Link to="/signup">signup.</Link> */}
         </p>
       )}
     </div>
   );
 };
+
+const styles = {
+  letstalk: {
+    textAlign: 'center'
+  }
+
+}
 
 export default PostForm;
