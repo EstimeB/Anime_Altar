@@ -79,6 +79,9 @@ const PostForm = () => {
             onSubmit={handleFormSubmit}
           >
             <div>
+              <input name="postTitle" type="postTitle" value={postTitle} onChange={handleChange}>
+
+              </input>
               <textarea
                 name="postDescription"
                 placeholder="Here's a new thought..."
