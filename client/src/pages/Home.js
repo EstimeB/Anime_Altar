@@ -15,7 +15,7 @@ const Home = () => {
       <div className="flex-row justify-center">
         <div
           className="col-12 col-md-10 mb-3 p-3"
-          style={{ border: '1px dotted #1a1a1a' }}
+          // style={{ border: '1px dotted #1a1a1a' }}
         >
           <PostForm />
         </div>
@@ -24,25 +24,26 @@ const Home = () => {
             <div>Loading...</div>
           ) : (
             <PostList
-              posts={posts}
+              posts={posts} 
             />
           )}
         </div>
       </div>
-      <div>Checkout</div>
+      <div></div>
     </main>
   );
 };
 const styles = {
   oldpost: {
     height: '750px',
-    numColumns: "2"
+    width: '65%',
+    marginLeft: '20px',
+    boxShadow: '5px 5px 7px rgb(151, 151, 143',
   },
   postBox: {
     height: '150px', 
-    border: 'solid'
 
-  }
+  },
 
 }
 
