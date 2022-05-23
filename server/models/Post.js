@@ -4,7 +4,9 @@ const dateFormat = require('../utils/dateFormat');
 const postSchema = new Schema({
   postTitle: {
     type: String,
-    required: true,
+    required: 'You must have a title!',
+    minlength: 1,
+    maxlength: 28,
     trim: true,
   },
   postDescription: {
@@ -24,6 +26,8 @@ const postSchema = new Schema({
       commentTitle: {
         type: String,
         required: true,
+        minlength: 1,
+        maxlength: 28,
       },
       commentDescription: {
         type: String,
