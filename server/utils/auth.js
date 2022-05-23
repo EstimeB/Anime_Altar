@@ -6,7 +6,8 @@ const secret = 'nani';
 const expiration = '2h';
 
 //  authorizing user request 
-const authMiddleware = ({ req }) => {
+module.exports = {
+    authMiddleware: function ({ req }) {
 
     //  allows token to be sent 
     let token = req.body.token || req.query.token || req.headers.authorization;
@@ -28,10 +29,9 @@ const authMiddleware = ({ req }) => {
     }
     //  return request object to be passed as "context" to the resolver
     return req;
-};
-const signToken = ({ email, username, _id }) => {
+},
+signToken: function ({ email, username, _id }) {
     const payload = { email, username, _id };
     return jwt.sign({ data: payload }, secret, { expiresIn: expiration });
+  },
 };
-
-module.export = { authMiddleware, signToken };
