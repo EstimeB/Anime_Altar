@@ -32,7 +32,7 @@ const styles = {
     textDecoration: 'none',
     color: 'beige',
   },
-  sigup: {
+  signup: {
     textDecoration: 'none',
     color: 'beige',
   },
@@ -48,7 +48,7 @@ const Header = () => {
       <div style={styles.hdr}>
         <div style={styles.titlebox}>
           <Link style={styles.title} to="/">
-            <h1 >Anime Alter</h1>
+            <h1 >Anime Altar</h1>
           </Link>
           <p></p>
         </div>
@@ -67,7 +67,7 @@ const Header = () => {
               <Link style={styles.login} to="/login">
                 Login
               </Link>/
-              <Link style={styles.sigup} to="/signup">
+              <Link style={styles.signup} to="/signup">
                 Signup
               </Link>
             </>
