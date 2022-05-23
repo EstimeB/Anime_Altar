@@ -36,11 +36,10 @@ const PostList = ({
                 </>
               )}
             </h4>
-            <div className="card-body bg-light p-2">
+            <div>
               <p style={styles.p}>{post.postDescription}</p>
             </div>
             <Link
-              className="btn btn-primary btn-block btn-squared"
               to={`/POSTS/${post._id}`}
             >
             </Link>
@@ -54,25 +53,26 @@ const styles = {
 
   thePost: {
     fontSize: '25px',
-
+    display: 'flex',
   },
   textLight: {
-    color: 'beige',
+    color: 'black',
     textDecoration: 'none',
-    marginLeft: '10px',
-    marginRigth: '10px'
+    margin: '15px',
+    display: 'flex',
 
   },
   textA: {
-    backgroundColor: 'rgb(132, 87, 4)',
-    height: '70px',
+    backgroundColor: 'orange',
+    height: '85px',
+    display: 'flex',
     border: 'solid',
-    marginBottom: '-10px',
-    borderColor: 'rgb(33, 54, 33)'
+    marginBottom: '0px',
+    borderColor: 'gold',
+    margin: '-0px'
   },
   pdate: {
     fontSize: '15px',
-
     marginLeft: '30px'
   },
   p: {

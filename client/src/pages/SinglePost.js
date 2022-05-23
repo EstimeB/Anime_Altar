@@ -24,16 +24,15 @@ const SinglePost = () => {
     return <div>Loading...</div>;
   }
   return (
-    <div className="my-3">
-      <h3 className="card-header bg-dark text-light p-2 m-0">
+    <div>
+      <h3>
         {post.thoughtAuthor} <br />
         <span style={{ fontSize: '1rem' }}>
           had this thought on {post.createdAt}
         </span>
       </h3>
-      <div className="bg-light py-4">
+      <div>
         <blockquote
-          className="p-4"
           style={{
             fontSize: '1.5rem',
             fontStyle: 'italic',
