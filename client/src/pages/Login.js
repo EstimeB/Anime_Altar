@@ -41,11 +41,11 @@ const Login = (props) => {
   };
 
   return (
-    <main className="flex-row justify-center mb-4">
-      <div className="col-12 col-lg-10">
-        <div className="card">
-          <h4 className="card-header bg-dark text-light p-2">Login</h4>
-          <div className="card-body">
+    <main style={styles.lmain}>
+      <div>
+        <div style={styles.card}>
+          <h4>Login</h4>
+          <div>
             {data ? (
               <p>
                 Success! You may now head{' '}
@@ -53,24 +53,30 @@ const Login = (props) => {
               </p>
             ) : (
               <form onSubmit={handleFormSubmit}>
+                Email
+                <br></br>
                 <input
-                  className="form-input"
+                  style={styles.input}
                   placeholder="Your email"
                   name="email"
                   type="email"
                   value={formState.email}
                   onChange={handleChange}
                 />
+                <br></br>
+                Password
+                <br></br>
                 <input
-                  className="form-input"
+                  style={styles.input}
                   placeholder="******"
                   name="password"
                   type="password"
                   value={formState.password}
                   onChange={handleChange}
                 />
+                <br></br>
+                <br></br>
                 <button
-                  className="btn btn-block btn-primary"
                   style={{ cursor: 'pointer' }}
                   type="submit"
                 >
@@ -80,7 +86,7 @@ const Login = (props) => {
             )}
 
             {error && (
-              <div className="my-3 p-3 bg-danger text-white">
+              <div>
                 {error.message}
               </div>
             )}
@@ -90,5 +96,26 @@ const Login = (props) => {
     </main>
   );
 };
+
+const styles = {
+  lmain: {
+    display: 'flex',
+    justifyContent: 'center',
+    textAlign: 'center',
+  },
+  card: {
+    boxShadow: '5px 5px 7px rgb(151, 151, 143',
+    width: '300px',
+    marginTop: '150px',
+    // background: 'rgb(246, 231, 204)',
+    backgroundColor: 'orange',
+    paddingBottom: '20px',
+    paddingTop: '7px',
+    marginBottom: '25px'
+  },
+  input: {
+    height: '20px'
+  },
+}
 
 export default Login;
