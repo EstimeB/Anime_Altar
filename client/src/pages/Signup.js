@@ -40,10 +40,10 @@ const Signup = () => {
 
   return (
     <main style={styles.smain}>
-      <div className="col-12 col-lg-10">
+      <div>
         <div style={styles.card}>
-          <h4 className="card-header bg-dark text-light p-2">Sign Up</h4>
-          <div className="card-body">
+          <h4>Sign Up</h4>
+          <div>
             {data ? (
               <p>
                 Success! You may now head{' '}
@@ -86,8 +86,7 @@ const Signup = () => {
                 <br></br>
                 <br></br>
                 <button
-                  className="btn btn-block btn-primary"
-                  style={{ cursor: 'pointer' }}
+                  style={styles.submitBtn}
                   type="submit"
                 >
                   Submit
@@ -96,7 +95,7 @@ const Signup = () => {
             )}
 
             {error && (
-              <div className="my-3 p-3 bg-danger text-white">
+              <div>
                 {error.message}
               </div>
             )}
@@ -113,7 +112,7 @@ const styles = {
     textAlign: 'center',
   },
   card: {
-    boxShadow: '5px 5px 7px rgb(151, 151, 143',
+    boxShadow: '5px 5px 7px rgb(151, 151, 143)',
     width: '300px',
     marginTop: '150px',
     // background: 'rgb(246, 231, 204)',
@@ -123,10 +122,11 @@ const styles = {
     marginBottom: '25px'
   },
   input: {
-    height: '20px'
+    height: '20px',
+    backgroundColor: 'rgb(243, 225, 179)',
   },
-  oCard: {
-    
+  submitBtn: {
+    backgroundColor: 'rgb(243, 225, 179)',
   }
 }
 

@@ -12,9 +12,8 @@ const Home = () => {
 
   return (
     <main style = {styles.oldpost}>
-      <div className="flex-row justify-center">
+      <div>
         <div
-          className="col-12 col-md-10 mb-3 p-3"
           // style={{ border: '1px dotted #1a1a1a' }}
         >
           <PostForm />
@@ -38,11 +37,15 @@ const styles = {
     height: '750px',
     width: '65%',
     marginLeft: '20px',
-    boxShadow: '5px 5px 7px rgb(151, 151, 143',
+    boxShadow: '5px 5px 7px rgb(151, 151, 143)',
+    background: 'rgb(248, 220, 164)',
+    marginTop: '55px',
+    textShadow: '5px 5px 7px rgb(151, 151, 143)',
   },
   postBox: {
     height: '150px', 
-
+    margin: '15px',
+    boxShadow: '5px 5px 7px orange',
   },
 
 }

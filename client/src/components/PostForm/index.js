@@ -64,8 +64,8 @@ const PostForm = () => {
   };
 
   return (
-    <div style={styles.letstalk}>
-      <h3>Let's talk anime!</h3>
+    <div style={styles.theDiv}>
+      <h3 style={styles.letstalk}>Let's talk anime!</h3>
 
       {Auth.loggedIn() ? (
         <>
@@ -112,8 +112,14 @@ const PostForm = () => {
 };
 
 const styles = {
+  theDiv: {
+    textShadow: '5px 5px 7px rgb(151, 151, 143)',
+  },
   letstalk: {
-    textAlign: 'center'
+    textAlign: 'center',
+    paddingTop: '25px',
+    fontSize: '30px',
+
   }
 
 }

@@ -6,9 +6,10 @@ import Auth from '../../utils/auth';
 const styles = {
   header: {
     backgroundColor: 'orange',
+    textShadow: '5px 5px 7px rgb(151, 151, 143)',
   },
   hdr: {
-    boxShadow: '5px 5px 7px rgb(151, 151, 143',
+    boxShadow: '5px 5px 7px rgb(151, 151, 143)',
     height: '130px',
     paddingLeft: '10px',
     paddingTop: '0.01px'

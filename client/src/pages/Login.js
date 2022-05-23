@@ -77,7 +77,7 @@ const Login = (props) => {
                 <br></br>
                 <br></br>
                 <button
-                  style={{ cursor: 'pointer' }}
+                  style={styles.submitBtn}
                   type="submit"
                 >
                   Submit
@@ -104,7 +104,7 @@ const styles = {
     textAlign: 'center',
   },
   card: {
-    boxShadow: '5px 5px 7px rgb(151, 151, 143',
+    boxShadow: '5px 5px 7px rgb(151, 151, 143)',
     width: '300px',
     marginTop: '150px',
     // background: 'rgb(246, 231, 204)',
@@ -114,8 +114,12 @@ const styles = {
     marginBottom: '25px'
   },
   input: {
-    height: '20px'
+    height: '20px',
+    backgroundColor: 'rgb(243, 225, 179)',
   },
+  submitBtn: {
+    backgroundColor: 'rgb(243, 225, 179)',
+  }
 }
 
 export default Login;
