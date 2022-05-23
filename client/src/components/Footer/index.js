@@ -5,7 +5,7 @@ const Footer = () => {
     const location = useLocation();
     const navigate = useNavigate();
     return (
-        <footer className="w-100 mt-auto bg-secondary p-4">
+        <footer style={styles.team}>
             <div className="container text-center mb-5">
                 {location.pathname !== '/' && (
                     <button
@@ -16,20 +16,24 @@ const Footer = () => {
                     </button>
                 )}
                 <h4>
-                    Made with{' '}
                     <span
                         className="emoji"
                         role="img"
                         aria-label="heart"
                         aria-hidden="false"
                     >
-                        ❤️
                     </span>{' '}
-                    by the 5Hands Team.
+                   Team 5Hands©
                 </h4>
             </div>
         </footer>
     );
 };
+const styles = {
+    team: {
+      textAlign: 'center'
+    }
+  
+  }
 
 export default Footer;

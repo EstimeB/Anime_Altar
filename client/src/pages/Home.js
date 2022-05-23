@@ -11,7 +11,7 @@ const Home = () => {
   const posts = data?.posts || [];
 
   return (
-    <main>
+    <main style = {styles.oldpost}>
       <div className="flex-row justify-center">
         <div
           className="col-12 col-md-10 mb-3 p-3"
@@ -32,5 +32,11 @@ const Home = () => {
     </main>
   );
 };
+const styles = {
+  oldpost: {
+    height: '750px'
+  }
+
+}
 
 export default Home;
