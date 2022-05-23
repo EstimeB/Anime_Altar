@@ -43,7 +43,7 @@ export const ADD_COMMENT = gql`
   mutation addComment($postId: ID!, $commentDescription: String!) {
     addComment(postId: $postId, commentDescription: $commentDescription) {
       _id
-     postDescription
+      postDescription
       postTitle
       createdAt
       comments {
