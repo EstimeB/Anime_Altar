@@ -26,11 +26,11 @@ const PostForm = () => {
       }
 
       // update me object's cache
-      const { me } = cache.readQuery({ query: QUERY_ME });
-      cache.writeQuery({
-        query: QUERY_ME,
-        data: { me: { ...me, posts: [...me.posts, addPost] } },
-      });
+      // const { me } = cache.readQuery({ query: QUERY_ME });
+      // cache.writeQuery({
+      //   query: QUERY_ME,
+      //   data: { me: { ...me, posts: [...me.posts, addPost] } },
+      // });
     },
   });
 
@@ -53,8 +53,16 @@ const PostForm = () => {
       console.error(err);
     }
   };
+  const titleChange = (event) => {
+    const { name, value } = event.target;
 
-  const handleChange = (event) => {
+    if (name === 'postTitle') {
+      setPostTitle(value);
+     
+    }
+  };
+
+  const postChange = (event) => {
     const { name, value } = event.target;
 
     if (name === 'postDescription' && value.length <= 280) {
@@ -79,7 +87,7 @@ const PostForm = () => {
             onSubmit={handleFormSubmit}
           >
             <div>
-              <input name="postTitle" type="postTitle" value={postTitle} onChange={handleChange}>
+              <input name="postTitle" type="postTitle" value={postTitle} onChange={titleChange}>
 
               </input>
               <textarea
@@ -87,7 +95,7 @@ const PostForm = () => {
                 placeholder="Here's a new thought..."
                 value={postDescription}
                 style={{ lineHeight: '1.5', resize: 'vertical' }}
-                onChange={handleChange}
+                onChange={postChange}
               ></textarea>
             </div>
 
