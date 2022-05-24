@@ -26,9 +26,9 @@ const SinglePost = () => {
   return (
     <div>
       <h3>
-        {post.thoughtAuthor} <br />
+        {post.postTitle} <br />
         <span style={{ fontSize: '1rem' }}>
-          had this thought on {post.createdAt}
+          posted by {post.postUser}, {post.createdAt}
         </span>
       </h3>
       <div>
@@ -40,7 +40,7 @@ const SinglePost = () => {
             lineHeight: '1.5',
           }}
         >
-          {post.postText}
+          {post.postDescription}
         </blockquote>
       </div>
 

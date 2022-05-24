@@ -30,6 +30,7 @@ export const ADD_POST = gql`
       _id
       postDescription
       postTitle
+      postUser
       createdAt
       comments {
         _id
@@ -45,10 +46,12 @@ export const ADD_COMMENT = gql`
       _id
       postDescription
       postTitle
+      postUser
       createdAt
       comments {
         _id
         commentDescription
+        commentUser
         createdAt
       }
     }

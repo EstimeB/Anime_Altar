@@ -15,6 +15,7 @@ const typeDefs = gql`
     _id: ID
     postTitle: String
     postDescription: String
+    postUser: [User]!
     createdAt: String
     comments: [Comment]!
   }
@@ -23,6 +24,7 @@ const typeDefs = gql`
     _id: ID
     commentTitle: String
     commentDescription: String
+    commentUser: [User]!
     createdAt: String
   }
 
