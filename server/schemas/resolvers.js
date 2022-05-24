@@ -48,12 +48,12 @@ const resolvers = {
 
       return { token, user };
     },
-    addPost: async (parent, { postDescription, postTitle }, context) => {
+    addPost: async (parent, { postDescription, postTitle, postUser }, context) => {
       if (context.user) {
         const post = await Post.create({
           postDescription,
           postTitle,
-          // : context.user.username,
+          postUser,
         });
 
         await User.findOneAndUpdate(
@@ -65,13 +65,13 @@ const resolvers = {
       }
       throw new AuthenticationError('You need to be logged in!');
     },
-    addComment: async (parent, { postId, commentDescription }, context) => {
+    addComment: async (parent, { postId, commentDescription, commentUser }, context) => {
       if (context.user) {
         return Post.findOneAndUpdate(
           { _id: postId },
           {
             $addToSet: {
-              comments: { commentDescription, commentTitle: context.user.username },
+              comments: { commentDescription, commentUser },
             },
           },
           {
@@ -82,12 +82,11 @@ const resolvers = {
       }
       throw new AuthenticationError('You need to be logged in!');
     },
-    removePost: async (parent, { postId, postTitle }, context) => {
+    removePost: async (parent, { postId, postUser }, context) => {
       if (context.user) {
         const post = await Post.findOneAndDelete({
           _id: postId,
-          postTitle,
-          // : context.user.username,
+          postUser,
         });
 
         await User.findOneAndUpdate(
@@ -99,7 +98,7 @@ const resolvers = {
       }
       throw new AuthenticationError('You need to be logged in!');
     },
-    removeComment: async (parent, { postId, commentId }, context) => {
+    removeComment: async (parent, { postId, commentId, commentUser }, context) => {
       if (context.user) {
         return Post.findOneAndUpdate(
           { _id: postId },
@@ -107,8 +106,7 @@ const resolvers = {
             $pull: {
               comments: {
                 _id: commentId,
-                commentTitle
-                // : context.user.username,
+                commentUser,
               },
             },
           },

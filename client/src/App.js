@@ -66,7 +66,7 @@ function App() {
                 element={<Dashboard />}
               />
               <Route 
-                path="/profiles/:username" 
+                path="/userSpace/:username" 
                 element={<Dashboard />}
               />
               <Route 

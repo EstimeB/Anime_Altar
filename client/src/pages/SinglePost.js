@@ -4,8 +4,8 @@ import React from 'react';
 import { useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 
-// import CommentList from '../components/CommentList';
-// import CommentForm from '../components/CommentForm';
+// import PostList from '../components/PostList';
+// import PostForm from '../components/PostForm';
 
 import { QUERY_SINGLE_POST } from '../utils/queries';
 

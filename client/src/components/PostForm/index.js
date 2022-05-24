@@ -26,11 +26,11 @@ const PostForm = () => {
       }
 
       // update me object's cache
-      // const { me } = cache.readQuery({ query: QUERY_ME });
-      // cache.writeQuery({
-      //   query: QUERY_ME,
-      //   data: { me: { ...me, posts: [...me.posts, addPost] } },
-      // });
+      const { me } = cache.readQuery({ query: QUERY_ME });
+      cache.writeQuery({
+        query: QUERY_ME,
+        data: { me: { ...me, posts: [...me.posts, addPost] } },
+      });
     },
   });
 
@@ -43,7 +43,7 @@ const PostForm = () => {
         variables: {
           postDescription,
           postTitle,
-          // : Auth.getDashboard().data.username,
+          // postUser: Auth.getDashboard().data.username,
         },
       });
 
