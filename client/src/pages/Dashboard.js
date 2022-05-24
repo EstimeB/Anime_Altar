@@ -38,16 +38,16 @@ const Dashboard = () => {
   return (
     <div>
       <div>
-        <h2>
+        {/* <h2>
           Viewing {userParam ? `${user.username}'s` : 'your'} dashboard.
-        </h2>
+        </h2> */}
 
         <div>
           <PostList
-            thoughts={user.posts}
-            title={`${user.username}'s posts...`}
-            showTitle={false}
-            showUsername={false}
+            posts={user.posts}
+            // title={`${user.username}'s posts...`}
+            // showTitle={false}
+            // showUsername={false}
           />
         </div>
         {!userParam && (

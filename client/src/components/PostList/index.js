@@ -3,7 +3,8 @@ import { Link } from 'react-router-dom';
 
 const PostList = ({
   posts,
-  title,
+  postTitle,
+  postUser,
   showTitle = true,
   showUsername = true,
 }) => {
@@ -13,29 +14,32 @@ const PostList = ({
 
   return (
     <div style = {styles.thePost}>
-      {showTitle && <h3>{title}</h3>}
+      {showTitle && <h3>{postTitle}</h3>}
       {posts &&
         posts.map((post) => (
           <div key={post._id} >
-            <h4 style={styles.textA}>
-              {showUsername ? (
-                <Link
-                  style={styles.textLight}
-                  to={`/dashboard/${post.postTitle}`}
-                >
-                  {post.postTitle}
-                  <span style={styles.pdate}>
-                    posted by {post.createdAt}
-                  </span>
-                </Link>
-              ) : (
-                <>
-                  {/* <span style={{ fontSize: '1rem' }}>
-                    posted by {post.createdAt}
-                  </span> */}
-                </>
-              )}
-            </h4>
+            {showUsername && <h4 style={styles.textA}>
+              posted by {postUser}, {post.createdAt}
+              </h4>}
+              {/* // ? ( */}
+              {/* //   <Link */}
+              {/* //     style={styles.textLight} */}
+              {/* //     to={`/dashboard/${post.postUser}`} */}
+              {/* //   > */}
+              {/* //     {post.postUser} */}
+              {/* //     <span style={styles.pdate}> */}
+              {/* //       posted by {post.createdAt} */}
+              {/* //     </span> */}
+              {/* //   </Link> */}
+              {/* // ) : ( */}
+              {/* //   <> */}
+              {/* //     <span style={{ fontSize: '1rem' }}> */}
+              {/* //       posted by {post.createdAt} */}
+              {/* //     </span> */}
+              {/* //   </> */}
+              {/* // ) */}
+              {/* // } */}
+            {/* </h4> */}
             <div>
               <p style={styles.p}>{post.postDescription}</p>
             </div>
