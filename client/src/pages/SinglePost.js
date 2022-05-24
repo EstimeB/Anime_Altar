@@ -4,8 +4,8 @@ import React from 'react';
 import { useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 
-// import CommentList from '../components/CommentList';
-// import CommentForm from '../components/CommentForm';
+// import PostList from '../components/PostList';
+// import PostForm from '../components/PostForm';
 
 import { QUERY_SINGLE_POST } from '../utils/queries';
 
@@ -26,9 +26,9 @@ const SinglePost = () => {
   return (
     <div>
       <h3>
-        {post.postTitle} <br />
+        {post.thoughtAuthor} <br />
         <span style={{ fontSize: '1rem' }}>
-          posted by {post.postUser}, {post.createdAt}
+          had this thought on {post.createdAt}
         </span>
       </h3>
       <div>
@@ -40,7 +40,7 @@ const SinglePost = () => {
             lineHeight: '1.5',
           }}
         >
-          {post.postDescription}
+          {post.postText}
         </blockquote>
       </div>
 
