@@ -65,10 +65,10 @@ function App() {
                 path="/me" 
                 element={<Dashboard />}
               />
-              {/* <Route 
-                path="/profiles/:username" 
+              <Route 
+                path="/userSpace/:username" 
                 element={<Dashboard />}
-              /> */}
+              />
               <Route 
                 path="/posts/:postId" 
                 element={<SinglePost />}

@@ -17,7 +17,7 @@ const Dashboard = () => {
   });
 
   const user = data?.me || data?.user || {};
-  // navigate to dashboard page if username is yours
+  // navigate to personal profile page if username is yours
   if (Auth.loggedIn() && Auth.getDashboard().data.username === userParam) {
     return <Navigate to="/me" />;
   }
@@ -38,16 +38,9 @@ const Dashboard = () => {
   return (
     <div>
       <div>
-        {/* <h2>
-          Viewing {userParam ? `${user.username}'s` : 'your'} dashboard.
-        </h2> */}
-
         <div>
           <PostList
             posts={user.posts}
-            // title={`${user.username}'s posts...`}
-            // showTitle={false}
-            // showUsername={false}
           />
         </div>
         {!userParam && (
