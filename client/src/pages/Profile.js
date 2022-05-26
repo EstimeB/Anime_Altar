@@ -71,6 +71,7 @@ const styles = {
     marginTop: '40px',
     marginBottom: '40px',
     textShadow: '5px 5px 7px rgb(151, 151, 143)',
+    overflowY: 'scroll',
   },
 }
 

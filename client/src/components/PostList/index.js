@@ -55,7 +55,7 @@ const PostList = ({ posts, title, showTitle = true, showUsername = true }) => {
               )}
             </p>
             <div>
-              <p>{post.postDescription}</p>
+              <p style={styles.pDes}>{post.postDescription}</p>
               {/* posted by {post.postAuthor} on */}
               <span style={styles.postBy}>posted by {post.postAuthor} on {post.createdAt}</span>
             </div>
@@ -88,8 +88,10 @@ const styles = {
   li: {
     // borderBottom: '1px solid #555',
     display: 'inline',
-  }
-
+  },
+  pDes: {
+    margin: '15px',
+  },
 };
 
 export default PostList;
