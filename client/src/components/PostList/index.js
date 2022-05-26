@@ -1,12 +1,35 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { useMutation } from "@apollo/client";
 
-const PostList = ({
-  posts,
-  title,
-  showTitle = true,
-  showUsername = true,
-}) => { if (!posts.length) {
+import { REMOVE_POST } from "../../utils/mutations";
+import { QUERY_ME } from "../../utils/queries";
+
+const PostList = ({ posts, title, showTitle = true, showUsername = true }) => {
+  const [removePost, { error }] = useMutation(REMOVE_POST, {
+    update(cache, { data: { removePost } }) {
+      try {
+        cache.writeQuery({
+          query: QUERY_ME,
+          data: { me: removePost },
+        });
+      } catch (e) {
+        console.error(e);
+      }
+    },
+  });
+
+  const handleRemovePost = async (post) => {
+    try {
+      const { data } = await removePost({
+        variables: { post },
+      });
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
+  if (!posts.length) {
     return <h3>No Thoughts Yet</h3>;
   }
   return (
@@ -15,28 +38,25 @@ const PostList = ({
       {posts &&
         posts.map((post) => (
           <div key={post._id}>
-            <h4 style={styles.textA}>
+            <p style={styles.textA}>
               {showUsername ? (
-              <Link
-                to={`/profiles/${post.postAuthor}`}
-              >
-                {post.postAuthor}
-                  <span style={styles.pdate}>
-                    at {post.createdAt}
-                    </span>
+                <Link to={`/profiles/${post.postAuthor}`}>
+                  <h4>{post.postTitle}</h4>
                 </Link>
-
               ) : (
                 <>
                   <span style={{ fontSize: "1rem" }}>
-                    at {post.createdAt}
+                  <h4>{post.postTitle}</h4>
+                    <button onClick={() => handleRemovePost(post)}>X_X</button>
+
                   </span>
                 </>
               )}
-            </h4>
+            </p>
             <div>
-              <p style={styles.p}>
-                {post.postDescription}</p>
+              <p style={styles.p}>{post.postDescription}</p>
+              posted by {post.postAuthor} on
+              <span style={styles.pdate}>{post.createdAt}</span>
             </div>
             <Link to={`/posts/${post._id}`}></Link>
           </div>
