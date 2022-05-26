@@ -1,5 +1,5 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React from 'react';
+import { Link } from 'react-router-dom';
 
 const PostList = ({
   posts,
@@ -38,7 +38,10 @@ const PostList = ({
               <p style={styles.p}>
                 {post.postDescription}</p>
             </div>
-            <Link to={`/posts/${post._id}`}></Link>
+            <Link
+              to={`/POSTS/${post._id}`}
+            >
+            </Link>
           </div>
         ))}
     </div>
@@ -46,34 +49,36 @@ const PostList = ({
 };
 
 const styles = {
+
   thePost: {
-    fontSize: "25px",
-    display: "flex",
+    fontSize: '25px',
+    display: 'flex',
   },
   textLight: {
-    color: "black",
-    textDecoration: "none",
-    margin: "15px",
-    display: "flex",
+    color: 'black',
+    textDecoration: 'none',
+    margin: '15px',
+    display: 'flex',
+
   },
   textA: {
-    backgroundColor: "orange",
-    height: "85px",
-    display: "flex",
-    border: "solid",
-    marginBottom: "0px",
-    borderColor: "gold",
-    margin: "-0px",
+    backgroundColor: 'orange',
+    height: '85px',
+    display: 'flex',
+    border: 'solid',
+    marginBottom: '0px',
+    borderColor: 'gold',
+    margin: '-0px'
   },
   pdate: {
-    fontSize: "15px",
-    marginLeft: "30px",
+    fontSize: '15px',
+    marginLeft: '30px'
   },
   p: {
-    fontSize: "20px",
-    marginLeft: "10px",
-    marginRigth: "10px",
-  },
-};
+    fontSize: '20px',
+    marginLeft: '10px',
+    marginRigth: '10px'
+  }
+}
 
 export default PostList;
