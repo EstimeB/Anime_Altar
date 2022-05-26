@@ -38,7 +38,8 @@ const PostForm = () => {
     event.preventDefault();
 
     try {
-      const { data } = await addPost({
+      // const { data } = 
+      await addPost({
         variables: {
           postDescription,
           postTitle,
