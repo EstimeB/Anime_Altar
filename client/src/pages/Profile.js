@@ -38,7 +38,7 @@ const Profile = () => {
   return (
     <div  style={styles.dashCard}>
       <div>
-      <h2>
+      <h2 style={styles.h2H}>
           Viewing {userParam ? `${user.username}'s` : 'your'} profile.
         </h2>
         <div>
@@ -51,7 +51,6 @@ const Profile = () => {
         </div>
         {!userParam && (
           <div
-            style={{ border: '1px dotted #1a1a1a' }}
           >
             <PostForm />
           </div>
@@ -73,6 +72,9 @@ const styles = {
     textShadow: '5px 5px 7px rgb(151, 151, 143)',
     overflowY: 'scroll',
   },
+  h2H: {
+    textAlign: 'center',
+  }
 }
 
 export default Profile;

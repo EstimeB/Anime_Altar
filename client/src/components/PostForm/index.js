@@ -147,18 +147,21 @@ const styles = {
     width: '100%',
     height: '100px',
     background: 'beige',
+    boxShadow: '5px 5px 7px rgb(151, 151, 143)',
   },
   postT: {
     width: '100%',
     marginBottom: '0px',
     height: '40px',
     background: 'beige',
+    boxShadow: '5px 5px 7px rgb(151, 151, 143)',
   },
   btn: {
     // border: 'none',
     background: 'orange',
     width: '105px',
     height: '35px',
+    boxShadow: '5px 5px 7px rgb(151, 151, 143)',
   },
   btnDiv: {
     textAlign: 'center',

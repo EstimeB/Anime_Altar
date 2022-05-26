@@ -41,14 +41,14 @@ const PostList = ({ posts, title, showTitle = true, showUsername = true }) => {
           <div key={post._id}  style={styles.plCard}>
             <p style={styles.pTitle}>
               {showUsername ? (
-                <Link to={`/profiles/${post.postAuthor}`}>
-                  <h4>{post.postTitle}</h4>
+                <Link style={styles.link4} to={`/profiles/${post.postAuthor}`}>
+                  <h4 style={styles.h4T}>{post.postTitle}</h4>
                 </Link>
               ) : (
                 <>
                   <ul style={styles.ul}>
                   <li style={styles.li}><h4>{post.postTitle}</h4></li>
-                    <li><button onClick={() => handleRemovePost(post)}>X_X</button></li>
+                    <li style={styles.dngBtn}><button onClick={() => handleRemovePost(post)}>X_X</button></li>
 
                   </ul>
                 </>
@@ -76,6 +76,7 @@ const styles = {
   pTitle: {
     background: 'orange',
     width: '100%',
+    height: '65px',
   },
   postBy: {
     float: 'right',
@@ -83,14 +84,27 @@ const styles = {
   },
   ul: {
     listStyleType: "none",
-    alignItem: 'center',
+    marginLeft: '0px',
+    marginRight: '2px',
   },
   li: {
-    // borderBottom: '1px solid #555',
-    display: 'inline',
+    paddingTop: '2px',
+    paddingBottom: '-20px',
+  },
+  dngBtn: {
+    float: 'right',
+    marginRight:'20px',
   },
   pDes: {
     margin: '15px',
+  },
+  h4T: {
+    paddingTop: '20px',
+    marginLeft: '20px',
+  },
+  link4: {
+    // color: '',
+    textDecoration: 'none',
   },
 };
 
