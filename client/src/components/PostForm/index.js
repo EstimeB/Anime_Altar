@@ -43,7 +43,7 @@ const PostForm = () => {
         variables: {
           postDescription,
           postTitle,
-          // postUser: Auth.getDashboard().data.username,
+          postAuthor: Auth.getProfile().data.username,
         },
       });
 
@@ -53,16 +53,15 @@ const PostForm = () => {
       console.error(err);
     }
   };
-  const titleChange = (event) => {
+  const handleTitleChange = (event) => {
     const { name, value } = event.target;
 
     if (name === 'postTitle') {
       setPostTitle(value);
-     
     }
   };
 
-  const postChange = (event) => {
+  const handlePostChange = (event) => {
     const { name, value } = event.target;
 
     if (name === 'postDescription' && value.length <= 280) {
@@ -87,7 +86,7 @@ const PostForm = () => {
             onSubmit={handleFormSubmit}
           >
             <div>
-              <input name="postTitle" type="postTitle" value={postTitle} onChange={titleChange}>
+              <input name="postTitle" value={postTitle} onChange={handleTitleChange}>
 
               </input>
               <textarea
@@ -95,7 +94,7 @@ const PostForm = () => {
                 placeholder="Here's a new thought..."
                 value={postDescription}
                 style={{ lineHeight: '1.5', resize: 'vertical' }}
-                onChange={postChange}
+                onChange={handlePostChange}
               ></textarea>
             </div>
 
@@ -111,10 +110,9 @@ const PostForm = () => {
             )}
           </form>
         </>
-      ) 
-      : (
+      ) : (
         <p>
-          You need to be logged in to share your posts. Please{' '}
+          You need to be logged in to share your thoughts. Please{' '}
           <Link to="/login">login</Link> or <Link to="/signup">signup.</Link>
         </p>
       )}

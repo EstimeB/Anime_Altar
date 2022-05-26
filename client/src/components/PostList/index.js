@@ -6,38 +6,37 @@ const PostList = ({
   title,
   showTitle = true,
   showUsername = true,
-}) => {
-  if (!posts.length) {
-    return <h3>No posts Yet</h3>;
+}) => { if (!posts.length) {
+    return <h3>No Thoughts Yet</h3>;
   }
-
   return (
-    <div style = {styles.thePost}>
+    <div style={styles.thePost}>
       {showTitle && <h3>{title}</h3>}
       {posts &&
         posts.map((post) => (
-          <div key={post._id} >
+          <div key={post._id}>
             <h4 style={styles.textA}>
               {showUsername ? (
-                <Link
-                  style={styles.textLight}
-                  to={`/dashboard/${post.postTitle}`}
-                >
-                  {post.postTitle}
+              <Link
+                to={`/profiles/${post.postAuthor}`}
+              >
+                {post.postAuthor}
                   <span style={styles.pdate}>
-                    posted by {post.createdAt}
-                  </span>
+                    at {post.createdAt}
+                    </span>
                 </Link>
+
               ) : (
                 <>
-                  {/* <span style={{ fontSize: '1rem' }}>
-                    posted by {post.createdAt}
-                  </span> */}
+                  <span style={{ fontSize: "1rem" }}>
+                    at {post.createdAt}
+                  </span>
                 </>
               )}
             </h4>
             <div>
-              <p style={styles.p}>{post.postDescription}</p>
+              <p style={styles.p}>
+                {post.postDescription}</p>
             </div>
             <Link
               to={`/POSTS/${post._id}`}
