@@ -21,7 +21,8 @@ const PostList = ({ posts, title, showTitle = true, showUsername = true }) => {
 
   const handleRemovePost = async (post) => {
     try {
-      const { data } = await removePost({
+      // const { data } = 
+      await removePost({
         variables: { post },
       });
     } catch (err) {
@@ -33,30 +34,30 @@ const PostList = ({ posts, title, showTitle = true, showUsername = true }) => {
     return <h3>No Thoughts Yet</h3>;
   }
   return (
-    <div style={styles.thePost}>
+    <div>
       {showTitle && <h3>{title}</h3>}
       {posts &&
         posts.map((post) => (
-          <div key={post._id}>
-            <p style={styles.textA}>
+          <div key={post._id}  style={styles.plCard}>
+            <p style={styles.pTitle}>
               {showUsername ? (
                 <Link to={`/profiles/${post.postAuthor}`}>
                   <h4>{post.postTitle}</h4>
                 </Link>
               ) : (
                 <>
-                  <span style={{ fontSize: "1rem" }}>
-                  <h4>{post.postTitle}</h4>
-                    <button onClick={() => handleRemovePost(post)}>X_X</button>
+                  <ul style={styles.ul}>
+                  <li style={styles.li}><h4>{post.postTitle}</h4></li>
+                    <li><button onClick={() => handleRemovePost(post)}>X_X</button></li>
 
-                  </span>
+                  </ul>
                 </>
               )}
             </p>
             <div>
-              <p style={styles.p}>{post.postDescription}</p>
+              <p>{post.postDescription}</p>
               {/* posted by {post.postAuthor} on */}
-              <span style={styles.pdate}>posted by {post.postAuthor} on{post.createdAt}</span>
+              <span style={styles.postBy}>posted by {post.postAuthor} on {post.createdAt}</span>
             </div>
             <Link to={`/posts/${post._id}`}></Link>
           </div>
@@ -66,34 +67,30 @@ const PostList = ({ posts, title, showTitle = true, showUsername = true }) => {
 };
 
 const styles = {
-  thePost: {
-    fontSize: "25px",
-    display: "flex",
+  plCard: {
+    height: '150px', 
+    marginLeft: '20px',
+    marginRight: '20px',
+    boxShadow: '5px 5px 7px orange',
   },
-  textLight: {
-    color: "black",
-    textDecoration: "none",
-    margin: "15px",
-    display: "flex",
+  pTitle: {
+    background: 'orange',
+    width: '100%',
   },
-  textA: {
-    backgroundColor: "orange",
-    height: "85px",
-    display: "flex",
-    border: "solid",
-    marginBottom: "0px",
-    borderColor: "gold",
-    margin: "-0px",
+  postBy: {
+    float: 'right',
+    marginRight:'20px',
   },
-  pdate: {
-    fontSize: "15px",
-    marginLeft: "30px",
+  ul: {
+    listStyleType: "none",
+    alignItem: 'center',
   },
-  p: {
-    fontSize: "20px",
-    marginLeft: "10px",
-    marginRigth: "10px",
-  },
+  li: {
+    // borderBottom: '1px solid #555',
+    display: 'inline',
+  }
+
 };
 
 export default PostList;
+

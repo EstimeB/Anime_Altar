@@ -36,7 +36,7 @@ const Profile = () => {
   }
 
   return (
-    <div>
+    <div  style={styles.dashCard}>
       <div>
       <h2>
           Viewing {userParam ? `${user.username}'s` : 'your'} profile.
@@ -60,5 +60,18 @@ const Profile = () => {
     </div>
   );
 };
+
+const styles = {
+  dashCard: {
+    height: '750px',
+    marginLeft: '50px',
+    marginRight: '50px',
+    boxShadow: '5px 5px 7px rgb(151, 151, 143)',
+    background: 'rgb(248, 220, 164)',
+    marginTop: '40px',
+    marginBottom: '40px',
+    textShadow: '5px 5px 7px rgb(151, 151, 143)',
+  },
+}
 
 export default Profile;

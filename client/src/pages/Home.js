@@ -28,6 +28,7 @@ const Home = () => {
 };
 const styles = {
   oldpost: {
+    display: 'flex',
     height: '750px',
     width: '65%',
     marginLeft: '20px',
@@ -36,12 +37,6 @@ const styles = {
     marginTop: '55px',
     textShadow: '5px 5px 7px rgb(151, 151, 143)',
   },
-  postBox: {
-    height: '150px', 
-    margin: '15px',
-    boxShadow: '5px 5px 7px orange',
-  },
-
 }
 
 export default Home;
