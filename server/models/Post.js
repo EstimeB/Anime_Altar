@@ -16,16 +16,14 @@ const postSchema = new Schema({
     maxlength: 280,
     trim: true,
   },
-  postUser: [
-    {
-      type: Schema.Types.ObjectId,
-      ref: "User",
-    },
-  ],
+  postAuthor: {
+    type: String,
+    required: true,
+    trim: true,
+  },
   createdAt: {
     type: Date,
     default: Date.now,
-    required: true,
   },
   comments: [
     {
@@ -35,16 +33,13 @@ const postSchema = new Schema({
         minlength: 1,
         maxlength: 280,
       },
-      commentUser: [
-        {
-          type: Schema.Types.ObjectId,
-          ref: "User",
-        },
-      ],
+      commentAuthor: {
+        type: String,
+        required: true,
+      },
       createdAt: {
         type: Date,
         default: Date.now,
-        required: true,
       },
     },
   ],

@@ -54,7 +54,8 @@ const Header = () => {
           {Auth.loggedIn() ? (
             <>
               <Link to="/">Home</Link>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-              <Link to="/me">Dasboard</Link>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+              <Link to="/me">{Auth.getProfile().data.username}'s Dasboard</Link>
+              &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
               <button onClick={logout}>Logout</button>
             </>
           ) : (

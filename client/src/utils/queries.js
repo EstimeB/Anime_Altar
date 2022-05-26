@@ -21,7 +21,7 @@ export const QUERY_POSTS = gql`
       _id
       postDescription
       postTitle
-      postUser
+      postAuthor
       createdAt
     }
   }
@@ -33,12 +33,12 @@ export const QUERY_SINGLE_POST = gql`
       _id
       postDescription
       postTitle
-      postUser
+      postAuthor
       createdAt
       comments {
         _id
         commentDescription
-        commentUser
+        commentAuthor
         createdAt
       }
     }
@@ -55,7 +55,7 @@ export const QUERY_ME = gql`
         _id
         postDescription
         postTitle
-        postUser
+        postAuthor
         createdAt
       }
     }

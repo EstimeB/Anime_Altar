@@ -48,12 +48,12 @@ const resolvers = {
 
       return { token, user };
     },
-    addPost: async (parent, { postDescription, postTitle, postUser }, context) => {
+    addPost: async (parent, { postDescription, postTitle }, context) => {
       if (context.user) {
         const post = await Post.create({
           postDescription,
           postTitle,
-          postUser,
+          postAuthor: context.user.username,
         });
 
         await User.findOneAndUpdate(
@@ -65,13 +65,13 @@ const resolvers = {
       }
       throw new AuthenticationError('You need to be logged in!');
     },
-    addComment: async (parent, { postId, commentDescription, commentUser }, context) => {
+    addComment: async (parent, { postId, commentDescription }, context) => {
       if (context.user) {
         return Post.findOneAndUpdate(
           { _id: postId },
           {
             $addToSet: {
-              comments: { commentDescription, commentUser },
+              comments: { commentDescription, commentAuthor: context.user.username },
             },
           },
           {
@@ -86,7 +86,7 @@ const resolvers = {
       if (context.user) {
         const post = await Post.findOneAndDelete({
           _id: postId,
-          postUser,
+          postAuthor: context.user.username,
         });
 
         await User.findOneAndUpdate(
@@ -98,7 +98,7 @@ const resolvers = {
       }
       throw new AuthenticationError('You need to be logged in!');
     },
-    removeComment: async (parent, { postId, commentId, commentUser }, context) => {
+    removeComment: async (parent, { postId, commentId }, context) => {
       if (context.user) {
         return Post.findOneAndUpdate(
           { _id: postId },
@@ -106,7 +106,7 @@ const resolvers = {
             $pull: {
               comments: {
                 _id: commentId,
-                commentUser,
+                commentAuthor: context.user.username,
               },
             },
           },

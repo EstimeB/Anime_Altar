@@ -9,7 +9,7 @@ import { QUERY_USER, QUERY_ME } from '../utils/queries';
 
 import Auth from '../utils/auth';
 
-const Dashboard = () => {
+const Profile = () => {
   const { username: userParam } = useParams();
 
   const { loading, data } = useQuery(userParam ? QUERY_USER : QUERY_ME, {
@@ -18,7 +18,7 @@ const Dashboard = () => {
 
   const user = data?.me || data?.user || {};
   // navigate to personal profile page if username is yours
-  if (Auth.loggedIn() && Auth.getDashboard().data.username === userParam) {
+  if (Auth.loggedIn() && Auth.getProfile().data.username === userParam) {
     return <Navigate to="/me" />;
   }
 
@@ -38,9 +38,15 @@ const Dashboard = () => {
   return (
     <div>
       <div>
+      <h2>
+          Viewing {userParam ? `${user.username}'s` : 'your'} profile.
+        </h2>
         <div>
           <PostList
             posts={user.posts}
+            title={`${user.username}`}
+            showTitle={false}
+            showUsername={false}
           />
         </div>
         {!userParam && (
@@ -55,4 +61,4 @@ const Dashboard = () => {
   );
 };
 
-export default Dashboard;
+export default Profile;

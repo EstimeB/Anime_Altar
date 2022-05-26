@@ -26,9 +26,9 @@ const SinglePost = () => {
   return (
     <div>
       <h3>
-        {post.postTitle} <br />
+        {post.postAuthor} <br />
         <span style={{ fontSize: '1rem' }}>
-          posted by {post.postUser}, {post.createdAt}
+          posted by {post.createdAt}
         </span>
       </h3>
       <div>

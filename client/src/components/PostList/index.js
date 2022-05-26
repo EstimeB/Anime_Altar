@@ -3,43 +3,40 @@ import { Link } from "react-router-dom";
 
 const PostList = ({
   posts,
-  postTitle,
-  postUser,
+  title,
   showTitle = true,
   showUsername = true,
-}) => {
-  if (!posts.length) {
-    return <h3>No posts Yet</h3>;
+}) => { if (!posts.length) {
+    return <h3>No Thoughts Yet</h3>;
   }
-
   return (
     <div style={styles.thePost}>
-      {showTitle && <h3>{postTitle}</h3>}
+      {showTitle && <h3>{title}</h3>}
       {posts &&
         posts.map((post) => (
           <div key={post._id}>
-            {/* {showUsername && <h4 style={styles.textA}>
-              posted by {postUser}, {post.createdAt}
-              </h4>} */}
-            <h4>
+            <h4 style={styles.textA}>
               {showUsername ? (
-                <Link
-                  style={styles.textLight}
-                  to={`/userSpace/${post.postUser}`}
-                >
-                  {post.postUser}
-                  <span style={styles.pdate}>posted by {post.createdAt}</span>
+              <Link
+                to={`/profiles/${post.postAuthor}`}
+              >
+                {post.postAuthor}
+                  <span style={styles.pdate}>
+                    at {post.createdAt}
+                    </span>
                 </Link>
+
               ) : (
                 <>
                   <span style={{ fontSize: "1rem" }}>
-                    posted by {post.createdAt}
+                    at {post.createdAt}
                   </span>
                 </>
               )}
             </h4>
             <div>
-              <p style={styles.p}>{post.postDescription}</p>
+              <p style={styles.p}>
+                {post.postDescription}</p>
             </div>
             <Link to={`/posts/${post._id}`}></Link>
           </div>
