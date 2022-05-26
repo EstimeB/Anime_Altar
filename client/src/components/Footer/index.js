@@ -23,7 +23,7 @@ const styles = {
   },
   teamL: {
     backgroundColor: "rgb(248, 237, 209)",
-    width: "110px",
+    width: "130px",
     paddingLeft: '3px',
     
   },

@@ -22,17 +22,30 @@ const styles = {
     color: "beige",
   },
   navLinks: {
-    color: "beige",
+    color: "rgb(81, 53, 119",
     float: "right",
     marginRight: "15px",
   },
   login: {
     textDecoration: "none",
-    color: "beige",
+    color: "rgb(81, 53, 119",
+    fontSize: '20px',
   },
   signup: {
     textDecoration: "none",
-    color: "beige",
+    color: "rgb(81, 53, 119",
+    fontSize: '20px',
+  },
+  link4: {
+    // color: '',
+    textDecoration: 'none',
+    fontSize: '20px',
+  },
+  logoutBtn: {
+    border: 'none',
+    backgroundColor: "orange",
+    fontSize: '20px',
+    color: 'rgb(81, 53, 119',
   },
 };
 
@@ -53,10 +66,10 @@ const Header = () => {
         <div style={styles.navLinks}>
           {Auth.loggedIn() ? (
             <>
-              <Link to="/">Home</Link>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-              <Link to="/me">{Auth.getProfile().data.username}'s Dasboard</Link>
+              <Link style={styles.link4} to="/">Home</Link>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+              <Link style={styles.link4} to="/me">{Auth.getProfile().data.username}'s Dasboard</Link>
               &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-              <button onClick={logout}>Logout</button>
+              <button style={styles.logoutBtn} onClick={logout}>Logout</button>
             </>
           ) : (
             <>
