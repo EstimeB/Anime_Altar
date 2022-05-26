@@ -1,5 +1,6 @@
 node_modules
-package_json
+package-lock.json
 client/.eslintcache
 .env
 .eslintcache
+.DS_Store

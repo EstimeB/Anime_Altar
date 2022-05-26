@@ -4,8 +4,8 @@ import React from 'react';
 import { useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 
-// import PostList from '../components/PostList';
-// import PostForm from '../components/PostForm';
+// import CommentList from '../components/CommentList';
+// import CommentForm from '../components/CommentForm';
 
 import { QUERY_SINGLE_POST } from '../utils/queries';
 
@@ -40,7 +40,7 @@ const SinglePost = () => {
             lineHeight: '1.5',
           }}
         >
-          {post.postText}
+          {post.postDescription}
         </blockquote>
       </div>
 
