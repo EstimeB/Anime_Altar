@@ -2,7 +2,6 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { useMutation } from "@apollo/client";
 
-
 import { REMOVE_POST } from "../../utils/mutations";
 import { QUERY_ME } from "../../utils/queries";
 
@@ -56,13 +55,10 @@ const PostList = ({ posts, title, showTitle = true, showUsername = true }) => {
             </p>
             <div>
               <p style={styles.p}>{post.postDescription}</p>
-              posted by {post.postAuthor} on
-              <span style={styles.pdate}>{post.createdAt}</span>
+              {/* posted by {post.postAuthor} on */}
+              <span style={styles.pdate}>posted by {post.postAuthor} on{post.createdAt}</span>
             </div>
-            <Link
-              to={`/POSTS/${post._id}`}
-            >
-            </Link>
+            <Link to={`/posts/${post._id}`}></Link>
           </div>
         ))}
     </div>
@@ -70,36 +66,34 @@ const PostList = ({ posts, title, showTitle = true, showUsername = true }) => {
 };
 
 const styles = {
-
   thePost: {
-    fontSize: '25px',
-    display: 'flex',
+    fontSize: "25px",
+    display: "flex",
   },
   textLight: {
-    color: 'black',
-    textDecoration: 'none',
-    margin: '15px',
-    display: 'flex',
-
+    color: "black",
+    textDecoration: "none",
+    margin: "15px",
+    display: "flex",
   },
   textA: {
-    backgroundColor: 'orange',
-    height: '85px',
-    display: 'flex',
-    border: 'solid',
-    marginBottom: '0px',
-    borderColor: 'gold',
-    margin: '-0px'
+    backgroundColor: "orange",
+    height: "85px",
+    display: "flex",
+    border: "solid",
+    marginBottom: "0px",
+    borderColor: "gold",
+    margin: "-0px",
   },
   pdate: {
-    fontSize: '15px',
-    marginLeft: '30px'
+    fontSize: "15px",
+    marginLeft: "30px",
   },
   p: {
-    fontSize: '20px',
-    marginLeft: '10px',
-    marginRigth: '10px'
-  }
-}
+    fontSize: "20px",
+    marginLeft: "10px",
+    marginRigth: "10px",
+  },
+};
 
 export default PostList;

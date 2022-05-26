@@ -2,7 +2,6 @@ import React from 'react';
 import { useQuery } from '@apollo/client';
 
 import PostList from '../components/PostList';
-import PostForm from '../components/PostForm';
 
 import { QUERY_POSTS } from '../utils/queries';
 
@@ -13,11 +12,6 @@ const Home = () => {
   return (
     <main style = {styles.oldpost}>
       <div>
-        <div
-          // style={{ border: '1px dotted #1a1a1a' }}
-        >
-          <PostForm />
-        </div>
         <div style = {styles.postBox}>
           {loading ? (
             <div>Loading...</div>
