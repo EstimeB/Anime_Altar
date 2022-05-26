@@ -1,3 +1,5 @@
 node_modules
 package_json
 client/.eslintcache
+.env
+.eslintcache
