@@ -41,7 +41,7 @@ const PostList = ({ posts, title, showTitle = true, showUsername = true }) => {
           <div key={post._id}  style={styles.plCard}>
             <p style={styles.pTitle}>
               {showUsername ? (
-                <Link style={styles.link4} to={`/profiles/${post.postAuthor}`}>
+                <Link style={styles.link4} to={`/posts/${post._id}`}>
                   <h4 style={styles.h4T}>{post.postTitle}</h4>
                 </Link>
               ) : (
@@ -59,7 +59,6 @@ const PostList = ({ posts, title, showTitle = true, showUsername = true }) => {
               {/* posted by {post.postAuthor} on */}
               <span style={styles.postBy}>posted by {post.postAuthor} on {post.createdAt}</span>
             </div>
-            <Link to={`/posts/${post._id}`}></Link>
           </div>
         ))}
     </div>

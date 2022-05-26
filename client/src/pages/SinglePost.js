@@ -26,19 +26,11 @@ const SinglePost = () => {
   return (
     <div>
       <h3>
-        {post.postAuthor} <br />
-        <span style={{ fontSize: '1rem' }}>
-          posted by {post.createdAt}
-        </span>
+      <h4>{post.postTitle}</h4>
+        <span>posted by {post.postAuthor} on {post.createdAt}</span>
       </h3>
       <div>
         <blockquote
-          style={{
-            fontSize: '1.5rem',
-            fontStyle: 'italic',
-            border: '2px dotted #1a1a1a',
-            lineHeight: '1.5',
-          }}
         >
           {post.postDescription}
         </blockquote>
