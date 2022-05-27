@@ -13,15 +13,10 @@ const CommentList = ({ comments = [] }) => {
       <div>
         {comments &&
           comments.map((comment) => (
-            <div key={comment._id}>
+            <div style={styles.plCard} key={comment._id}>
               <div>
-                <h5>
-                  {comment.commentAuthor} commented{' '}
-                  <span>
-                    on {comment.createdAt}
-                  </span>
-                </h5>
-                <p>{comment.commentDescription}</p>
+                <p style={styles.pDes}>{comment.commentDescription}</p>
+                <span style={styles.postBy}> posted by {comment.commentAuthor} on {comment.createdAt} </span>
               </div>
             </div>
           ))}
@@ -29,5 +24,21 @@ const CommentList = ({ comments = [] }) => {
     </>
   );
 };
+
+const styles = { 
+  plCard: {
+    height: '150px', 
+    marginLeft: '20px',
+    marginRight: '20px',
+    boxShadow: '5px 5px 7px orange',
+  },
+  postBy: {
+    float: 'right',
+    marginRight:'20px',
+  },
+  pDes: {
+    margin: '15px',
+  },
+}
 
 export default CommentList;
