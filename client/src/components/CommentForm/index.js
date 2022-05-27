@@ -34,7 +34,7 @@ const CommentForm = ({ postId }) => {
   const handleChange = (event) => {
     const { name, value } = event.target;
 
-    if (name === 'commentText' && value.length <= 280) {
+    if (name === 'commentDescription' && value.length <= 280) {
       setCommentDescription(value);
       setCharacterCount(value.length);
     }

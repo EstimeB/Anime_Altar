@@ -24,7 +24,7 @@ const typeDefs = gql`
     _id: ID
     commentTitle: String
     commentDescription: String
-    commentUser: [User]!
+    commentAuthor: String
     createdAt: String
   }
 

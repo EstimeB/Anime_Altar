@@ -21,7 +21,7 @@ const CommentList = ({ comments = [] }) => {
                     on {comment.createdAt}
                   </span>
                 </h5>
-                <p></p>
+                <p>{comment.commentDescription}</p>
               </div>
             </div>
           ))}
