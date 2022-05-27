@@ -42,10 +42,12 @@ const CommentForm = ({ postId }) => {
 
   return (
     <div>
-      <h4>What are your thoughts on this thought?</h4>
+      <h4 style={styles.letstalk}>What are your thoughts on this post?</h4>
 
       {Auth.loggedIn() ? (
         <>
+        <div style={styles.pfCard}>
+
           <p
             className={`m-0 ${
               characterCount === 280 || error ? 'text-danger' : ''
@@ -57,22 +59,24 @@ const CommentForm = ({ postId }) => {
           <form
             onSubmit={handleFormSubmit}
           >
-            <div>
-              <textarea
-                name="commentDescription"
-                placeholder="Add your comment..."
-                value={commentDescription}              
-               
-                onChange={handleChange}
-              ></textarea>
-            </div>
+            <div style={styles.textBox}>
+              <div style={styles.createPt}>Leave a Comment</div>
 
-            <div>
-              <button type="submit">
-                Add Comment
-              </button>
-            </div>
+                  <textarea
+                    name="commentDescription"
+                    placeholder="Add your comment..."
+                    value={commentDescription}              
+                    style={styles.postText}
+                    onChange={handleChange}
+                  ></textarea>
+              </div>
+              <div style={styles.btnDiv}>
+                <button style={styles.btn} type="submit">
+                  Add Comment
+                </button>
+              </div>
           </form>
+        </div>
         </>
       ) : (
         <p>
@@ -83,5 +87,50 @@ const CommentForm = ({ postId }) => {
     </div>
   );
 };
+
+const styles = {
+  pfCard: {
+    marginLeft: '20px',
+    marginRight: '20px',
+    boxShadow: '5px 5px 7px orange',
+    marginBottom: '50px',
+    height: '100%',
+  },
+  letstalk: {
+    textAlign: 'center',
+    paddingTop: '25px',
+    fontSize: '30px',
+  },
+  textBox: {
+    paddingTop: '20px',
+    paddingBottom: '30px',
+    // border: 'solid',
+    marginLeft: '100px',
+    marginRight: '100px',
+  },
+  createPt: {
+    fontSize: '25px',
+    textAlign: 'center',
+    marginBottom: '20px',
+  },
+  btnDiv: {
+    textAlign: 'center',
+  },
+  postText: {
+    width: '100%',
+    height: '100px',
+    background: 'beige',
+    boxShadow: '5px 5px 7px rgb(151, 151, 143)',
+    marginBottom: '-10px',
+  },
+  btn: {
+    // border: 'none',
+    background: 'orange',
+    width: '105px',
+    height: '35px',
+    boxShadow: '5px 5px 7px rgb(151, 151, 143)',
+    marginBottom: '50px',
+  },
+}
 
 export default CommentForm;
