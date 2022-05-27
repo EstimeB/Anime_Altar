@@ -4,8 +4,8 @@ import React from 'react';
 import { useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 
-// import CommentList from '../components/CommentList';
-// import CommentForm from '../components/CommentForm';
+import CommentList from '../components/CommentList';
+import CommentForm from '../components/CommentForm';
 
 import { QUERY_SINGLE_POST } from '../utils/queries';
 
@@ -35,12 +35,12 @@ const SinglePost = () => {
         </blockquote>
       </div>
 
-      {/* <div>
+      <div>
         <CommentList comments={post.comments} />
       </div>
       <div>
         <CommentForm postId={post._id} />
-      </div> */}
+      </div>
     </div>
   );
 };
