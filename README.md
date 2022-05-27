@@ -19,3 +19,5 @@ This was the third project for this course, We created this site for anime fans 
 
 ## Heroku Link
 - https://animealtar.herokuapp.com
+
+![Screenshot (297)](https://user-images.githubusercontent.com/98374162/170634576-191fc2e4-467e-4e53-beb6-28709d0a8ae6.png)
